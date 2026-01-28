@@ -1,0 +1,32 @@
+.dashboard-body {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  min-height: 60vh !important;
+  text-align: center !important;
+  padding: 2rem 1rem !important;
+  gap: 1rem !important;
+}
+
+.dashboard-div {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+}
+
+.h1Tag {
+  margin: 0 !important;
+  font-size: 2.5rem !important;
+  font-weight: 700 !important;
+  color: #1f2937 !important;
+}
+
+.para {
+  margin: 0 !important;
+  font-size: 1.25rem !important;
+  color: #6b7280 !important;
+  max-width: 400px !important;
+}

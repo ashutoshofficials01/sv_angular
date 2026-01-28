@@ -1,0 +1,32 @@
+<!-- @for (item of items; track $index) {} -->
+<div>
+  <div>
+    <ul>
+      <h1>Login</h1>
+      <ul>
+        <p>Enter Email Id<span style="color: crimson; zoom: 80%">*</span></p>
+        <input [(ngModel)]="logEmailId" placeholder="Enter Email Id" />
+      </ul>
+      <ul>
+        <p>Enter Password<span style="color: crimson; zoom: 80%">*</span></p>
+        <input [(ngModel)]="logPassword" placeholder="Enter Password" />
+      </ul>
+      <ul>
+        <p>Choose Role<span style="color: crimson; zoom: 80%">*</span></p>
+        <select [(ngModel)]="logRole" placeholder="Choose Role">
+          <option value="" hidden [defaultSelected]="true">Choose Role</option>
+          <option value="personal">personal</option>
+          <option value="recruiter">recruiter</option>
+          <option value="admin">admin</option>
+        </select>
+      </ul>
+      <br />
+      <button (click)="checkLogin(logEmailId, logPassword, logRole)">Login</button
+      ><br />
+      <span
+        >If new user, please register here
+        <button (click)="registerPageNav('personal')">Register</button></span
+      >
+    </ul>
+  </div>
+</div>

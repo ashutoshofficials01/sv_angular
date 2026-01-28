@@ -1,0 +1,33 @@
+<div>
+  <div>
+      <ul>
+        <h1>Register</h1>
+        <ul>
+          <span>Enter First Name</span>
+          <input [(ngModel)]="regFName" placeholder="Enter First Name" />
+        </ul>
+        <ul>
+          <span>Enter Last Name</span>
+          <input [(ngModel)]="regLName" placeholder="Enter Last Name" />
+        </ul>
+        <ul>
+          <span>Enter Username</span>
+          <input [(ngModel)]="regUName" placeholder="Enter Username" />
+        </ul>
+        <ul>
+          <span>Enter Email Id</span>
+          <input [(ngModel)]="regEmailId" placeholder="Enter Email Id" />
+        </ul>
+        <ul>
+          <span>Enter Password</span>
+          <input [(ngModel)]="regPassword" placeholder="Enter Password" />
+        </ul>
+        <ul>
+          <span>Confirm Password</span>
+          <input [(ngModel)]="regConPassword" placeholder="Confirm Password" />
+        </ul>
+        <button (click)="registerUser(regFName, regLName, regUName, regEmailId, regPassword, 'personal')">Register</button>
+        <span>If not new user, please login <button (click)="loginNavPage('personal')">Login</button></span>
+      </ul>
+    </div>
+</div>

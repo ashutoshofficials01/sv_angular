@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { LoginService } from '../../../services/login.service';
-import { loginCheckDto } from '../../../shared/classes-dto';
+import { LoginService } from '../../services/login.service';
+import { loginCheckDto } from '../../shared/classes-dto';
 
 
 @Component({

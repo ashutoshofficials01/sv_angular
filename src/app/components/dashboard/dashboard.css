@@ -30,3 +30,82 @@
   color: #6b7280 !important;
   max-width: 400px !important;
 }
+
+/* - - - MODAL - - - */
+
+/* Force modal visibility when Angular renders it */
+.modal {
+  position: fixed !important;
+  inset: 0;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: 1050;
+  opacity: 1 !important;
+  pointer-events: auto;
+}
+
+/* Modal dialog */
+.modal-dialog {
+  max-width: 640px;
+  width: 90%;
+  margin: 0 !important;
+}
+
+/* Modal content */
+.modal-content {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 28px 32px;
+  border: none;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+}
+
+/* Header */
+.modal-header {
+  border-bottom: none;
+  padding-bottom: 12px;
+}
+
+.modal-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+/* Body */
+.modal-body {
+  text-align: center;
+}
+
+.modal-body h3 {
+  font-size: 1.15rem;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+/* Button */
+.modal-body button {
+  margin-left: 10px;
+  padding: 6px 16px;
+  font-size: 0.95rem;
+  border-radius: 20px;
+}
+
+/* Pop animation (Angular-friendly) */
+.modal-dialog {
+  animation: modalPop 0.25s ease-out;
+}
+
+@keyframes modalPop {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* X X X MODAL X X X */

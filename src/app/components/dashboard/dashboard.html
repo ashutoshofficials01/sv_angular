@@ -9,13 +9,235 @@
       <p class="para">Your ATS Score Analytics</p>
     </div>
   </div>
+
   <div>
-    <h3>To check your Resume's ATS Score,
-    <button (click)="scorePageNav()">Click Here</button>
-    </h3>
+    <div>
+      <ul>
+        <ul>
+          <p>Choose Resume Category<span style="color: crimson; zoom: 80%">*</span></p>
+          <select [(ngModel)]="resumeCategory" placeholder="Choose Resume Category" (change)="onCategoryChange(resumeCategory)">
+            <option value="" hidden [defaultSelected]="true">Choose Category</option>
+            <option value="it" data-bs-toggle="modal" data-bs-target="#categoryItModal">
+              Technology & IT
+            </option>
+            <option value="finance" data-bs-toggle="modal" data-bs-target="#categoryFinanceModal">
+              Finance & Accounting
+            </option>
+            <option value="construction" data-bs-toggle="modal" data-bs-target="#categoryConstructionModal">
+              Engineering & Construction
+            </option>
+            <option value="healthcare" data-bs-toggle="modal" data-bs-target="#categoryHealthcareModal">
+              Healthcare
+            </option>
+            <option value="education" data-bs-toggle="modal" data-bs-target="#categoryEducationModal">
+              Education & Academia
+            </option>
+            <option value="business" data-bs-toggle="modal" data-bs-target="#categoryBusinessModal">
+              Business & Management
+            </option>
+            <option value="design" data-bs-toggle="modal" data-bs-target="#categoryDesignModal">
+              Creative & Design
+            </option>
+            <option value="government" data-bs-toggle="modal" data-bs-target="#categoryGovernmentModal">
+              Government & Public Services
+            </option>
+            <option value="tourism" data-bs-toggle="modal" data-bs-target="#categoryTourismModal">
+              Hospitality & Tourism
+            </option>
+            <option value="legal" data-bs-toggle="modal" data-bs-target="#categoryLegalModal">
+              Legal & Compliance
+            </option>
+          </select>
+        </ul>
+      </ul>
+    </div>
   </div>
+
   <!-- <div>
     <h1>Job Opening</h1>
     <button>view openings</button>
   </div> -->
+  @if (resumeCategory == 'it') {
+    <div class="modal fade" id="categoryItModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Technology & IT</h5>
+            <!-- <button type="button" class="btn-close" data-bs-dismiss="modal"></button> -->
+          </div>
+
+          <div class="modal-body">
+            <h3>
+              To check your Resume's ATS Score,
+              <button class="btn btn-success" (click)="scorePageNavIt()">Click Here</button>
+            </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  } @else if (resumeCategory == 'finance') {
+    <div class="modal fade" id="categoryFinanceModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Finance & Accounting</h5>
+            <!-- <button type="button" class="btn-close" data-bs-dismiss="modal"></button> -->
+          </div>
+
+          <div class="modal-body">
+            <h3>
+              To check your Resume's ATS Score,
+              <button class="btn btn-success" (click)="scorePageNavFinance()">Click Here</button>
+            </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  } @else if (resumeCategory == 'construction') {
+    <div class="modal fade" id="categoryConstructionModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Engineering & Construction</h5>
+            <!-- <button type="button" class="btn-close" data-bs-dismiss="modal"></button> -->
+          </div>
+
+          <div class="modal-body">
+            <h3>
+              To check your Resume's ATS Score,
+              <button class="btn btn-success" (click)="scorePageNavConstruction()">
+                Click Here
+              </button>
+            </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  } @else if (resumeCategory == 'healthcare') {
+    <div class="modal fade" id="categoryHealthcareModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Healthcare</h5>
+            <!-- <button type="button" class="btn-close" data-bs-dismiss="modal"></button> -->
+          </div>
+
+          <div class="modal-body">
+            <h3>
+              To check your Resume's ATS Score,
+              <button class="btn btn-success" (click)="scorePageNavHealthcare()">Click Here</button>
+            </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  } @else if (resumeCategory == 'education') {
+    <div class="modal fade" id="categoryEducationModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Education & Academia</h5>
+            <!-- <button type="button" class="btn-close" data-bs-dismiss="modal"></button> -->
+          </div>
+
+          <div class="modal-body">
+            <h3>
+              To check your Resume's ATS Score,
+              <button class="btn btn-success" (click)="scorePageNavEducation()">Click Here</button>
+            </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  } @else if (resumeCategory == 'business') {
+    <div class="modal fade" id="categoryBusinessModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Business & Management</h5>
+            <!-- <button type="button" class="btn-close" data-bs-dismiss="modal"></button> -->
+          </div>
+
+          <div class="modal-body">
+            <h3>
+              To check your Resume's ATS Score,
+              <button class="btn btn-success" (click)="scorePageNavBusiness()">Click Here</button>
+            </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  } @else if (resumeCategory == 'design') {
+    <div class="modal fade" id="categoryDesignModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Creative & Design</h5>
+            <!-- <button type="button" class="btn-close" data-bs-dismiss="modal"></button> -->
+          </div>
+
+          <div class="modal-body">
+            <h3>
+              To check your Resume's ATS Score,
+              <button class="btn btn-success" (click)="scorePageNavDesign()">Click Here</button>
+            </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  } @else if (resumeCategory == 'government') {
+    <div class="modal fade" id="categoryGovernmentModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Government & Public Services</h5>
+            <!-- <button type="button" class="btn-close" data-bs-dismiss="modal"></button> -->
+          </div>
+
+          <div class="modal-body">
+            <h3>
+              To check your Resume's ATS Score,
+              <button class="btn btn-success" (click)="scorePageNavGovernment()">Click Here</button>
+            </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  } @else if (resumeCategory == 'tourism') {
+    <div class="modal fade" id="categoryTourismModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Hospitality & Tourism</h5>
+            <!-- <button type="button" class="btn-close" data-bs-dismiss="modal"></button> -->
+          </div>
+
+          <div class="modal-body">
+            <h3>
+              To check your Resume's ATS Score,
+              <button class="btn btn-success" (click)="scorePageNavTourism()">Click Here</button>
+            </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  } @else if (resumeCategory == 'legal') {
+    <div class="modal fade" id="categoryLegalModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Legal & Compliance</h5>
+            <!-- <button type="button" class="btn-close" data-bs-dismiss="modal"></button> -->
+          </div>
+
+          <div class="modal-body">
+            <h3>
+              To check your Resume's ATS Score,
+              <button class="btn btn-success" (click)="scorePageNavLegal()">Click Here</button>
+            </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
 </div>

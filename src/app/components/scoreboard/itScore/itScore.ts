@@ -1,11 +1,11 @@
 import { ChangeDetectorRef, Component, NgZone, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ScoreService } from '../../services/score.service';
+import { ScoreService } from '../../../services/score.service';
 import { HttpEvent, HttpEventType } from '@angular/common/http';
-import { AtsGenParamDto, AtsListDto, resumeCalUpdate, SendResponseDto } from '../../shared/classes-dto';
+import { AtsGenParamDto, AtsListDto, resumeCalUpdate, SendResponseDto } from '../../../shared/classes-dto';
 
 @Component({
-  selector: 'app-score',
+  selector: 'app-itscore',
   standalone: false,
   templateUrl: './itScore.html',
   styleUrl: './itScore.css',

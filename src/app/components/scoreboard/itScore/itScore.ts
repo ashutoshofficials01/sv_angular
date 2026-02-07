@@ -33,6 +33,12 @@ export class ItScore implements OnInit {
     });
   }
 
+
+  backNav() {
+    this.router.navigate(["/dashboard"], { queryParams: { role: this.role, id: this.formatType } });
+  }
+
+
   resSelect(event: any): void {
     // const resile = event.target.files[0]; 
     this.selectedFile = null;
@@ -70,7 +76,7 @@ export class ItScore implements OnInit {
 
     this.uploadState = 'uploading';
 
-    this.scoreService.resumeUpload(formd).subscribe({
+    this.scoreService.resumeUploadIT(formd).subscribe({
       next: (resp: SendResponseDto) => {
         // console.log('Upload success:', JSON.stringify(resp, null, 4));
         console.log('Upload success:', resp);
@@ -106,57 +112,69 @@ export class ItScore implements OnInit {
     }
 
     this.generalDataFormat(this.atsGenData, this.atsListBulk);
+
+
   }
 
   generalDataFormat(atsGen: AtsGenParamDto[], atsBulk: AtsListDto[]) {
 
+
+
     for (let i = 0; i < atsBulk.length; i++) {
       for (let j = 0; j < atsGen.length; j++) {
 
-        let resMsg: resumeCalUpdate = new resumeCalUpdate();
+        if (atsBulk[i].atsGeneralId == atsGen[j].atsGeneralId) {
 
-        resMsg.atsGeneralId = atsGen[j].atsGeneralId;
-        resMsg.atsParamId = atsGen[j].atsParamId;
-        resMsg.category = atsGen[j].category;
-        resMsg.description = atsGen[j].description;
-        resMsg.max_points = atsGen[j].max_points;
-        resMsg.parameter = atsGen[j].parameter;
-        resMsg.penalty_points = atsGen[j].penalty_points;
-        resMsg.total_points = atsGen[j].total_points;
+          let resMsg: resumeCalUpdate = new resumeCalUpdate();
 
-        if (atsBulk[i].atsParamType == "positive") {
+          resMsg.atsGeneralId = atsGen[j].atsGeneralId;
+          resMsg.atsParamId = atsGen[j].atsParamId;
+          resMsg.category = atsGen[j].category;
+          resMsg.description = atsGen[j].description;
+          resMsg.max_points = atsGen[j].max_points;
+          resMsg.parameter = atsGen[j].parameter;
+          resMsg.penalty_points = atsGen[j].penalty_points;
+          resMsg.total_points = atsGen[j].total_points;
 
-          resMsg.msgDescription = "";
-          resMsg.msgParamType = atsBulk[i].atsParamType
-          resMsg.msgScore = atsBulk[i].atsScore
-          resMsg.msgPercentage = `${atsBulk[i].atsScore} %`;
+          if (atsBulk[i].atsParamType == "positive") {
 
-        } else if (atsBulk[i].atsParamType == "partial") {
+            resMsg.msgDescription = "";
+            resMsg.msgParamType = atsBulk[i].atsParamType
+            resMsg.msgScore = atsBulk[i].atsScore
+            resMsg.msgPercentage = `${atsBulk[i].atsScore} %`;
 
-          resMsg.msgDescription = "";
-          resMsg.msgParamType = atsBulk[i].atsParamType
-          resMsg.msgScore = atsBulk[i].atsScore
-          resMsg.msgPercentage = `${atsBulk[i].atsScore} %`;
+          } else if (atsBulk[i].atsParamType == "partial") {
 
-        } else if (atsBulk[i].atsParamType == "negative") {
+            resMsg.msgDescription = "";
+            resMsg.msgParamType = atsBulk[i].atsParamType
+            resMsg.msgScore = atsBulk[i].atsScore
+            resMsg.msgPercentage = `${atsBulk[i].atsScore} %`;
 
-          resMsg.msgDescription = "";
-          resMsg.msgParamType = atsBulk[i].atsParamType
-          resMsg.msgScore = atsBulk[i].atsScore
-          resMsg.msgPercentage = `${atsBulk[i].atsScore} %`;
+          } else if (atsBulk[i].atsParamType == "negative") {
+
+            resMsg.msgDescription = "";
+            resMsg.msgParamType = atsBulk[i].atsParamType
+            resMsg.msgScore = atsBulk[i].atsScore
+            resMsg.msgPercentage = `${atsBulk[i].atsScore} %`;
+
+          }
+
+          this.resMsgUpdate.push(resMsg);
 
         }
 
-        this.resMsgUpdate.push(resMsg);
-
       }
     }
+
+
 
     this.messageUpdate(this.resMsgUpdate);
 
   }
 
   messageUpdate(msgUpdate: resumeCalUpdate[]) {
+
+
 
     for (let k = 0; k < msgUpdate.length; k++) {
       if (msgUpdate[k].atsGeneralId == 1) {
@@ -379,8 +397,12 @@ export class ItScore implements OnInit {
 
 
       }
+
     }
 
+    console.log("Message Update Array {atsListBulk} :: ", this.atsListBulk);
+    console.log("Message Update Array {atsGenData} :: ", this.atsGenData);
+    console.log("Message Update Array {generalDataFormat} :: ", this.resMsgUpdate);
   }
 
 

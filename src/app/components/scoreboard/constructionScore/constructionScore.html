@@ -1,3 +1,63 @@
-<p>
-  financeScore works!
-</p>
+<div>
+  <!-- Scoreboard Navbar Section -->
+  <app-navbar></app-navbar>
+  <button (click)="backNav()"><ng-icon name="heroArrowLeftCircleSolid"></ng-icon> Back</button>
+
+  <!-- Scoreboard Body Section -->
+  <div class="scoreboard-body">
+    <div class="scoreboard-div">
+      <h1 class="h1Tag">ScanVera Engineering & Construction Scoreboard</h1>
+      <p class="para">
+        To proceed with ATS score check, please upload resume in docx or pdf format only
+      </p>
+      <br />
+    </div>
+    <br />
+  </div>
+  <!-- SELECT THE FILE  -->
+  <label>
+    <input
+      type="file"
+      id="resSelect"
+      (change)="resSelect($event)"
+      accept=".pdf,.docx,.doc"
+      [disabled]="uploadState !== 'idle'"
+      hidden
+    />
+
+    <label for="resSelect" class="file-btn" [class.disabled]="uploadState !== 'idle'">
+      Choose File</label
+    >
+
+    <label for="resSelect">
+      <h5><ng-icon name="heroCloudArrowUpSolid"></ng-icon> (PDF or DOCX, max 2MB)</h5>
+    </label>
+  </label>
+  <br />
+
+  <!-- FILE PREVIEW -->
+  @if (selectedFile) {
+    <div>
+      <strong>{{ selectedFile.name }} </strong>
+      <strong> : [{{ (selectedFile.size / 1024).toFixed(1) }} KB]</strong>
+      <li>
+        <button (click)="clearFile()"><ng-icon name="heroTrashSolid"></ng-icon>Clear</button>
+      </li>
+    </div>
+    <br />
+  }
+
+  <!-- UPLOAD FILE  -->
+
+  @if (selectedFile && uploadState === 'idle') {
+    <button id="resUpload" (click)="resUpload()">Upload & Scan</button>
+  }
+
+  <!-- @if (uploadState == 'done' || uploadState == 'error') { -->
+  @if (message) {
+    <h5 [ngClass]="{ success: isSuccess, error: !isSuccess }">
+      {{ message }}
+    </h5>
+  }
+  <!-- } -->
+</div>

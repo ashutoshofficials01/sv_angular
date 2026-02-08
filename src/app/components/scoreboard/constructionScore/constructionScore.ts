@@ -64,6 +64,10 @@ export class ConstructionScore implements OnInit {
     this.message = '';
     this.uploadState = 'idle';
 
+    this.atsGenData = [];
+    this.atsListBulk = [];
+    this.resMsgUpdate = [];
+
     const input = document.getElementById('resSelect') as HTMLInputElement;
     if (input) input.value = '';
   }
@@ -108,6 +112,7 @@ export class ConstructionScore implements OnInit {
 
   resumeUploadFormat(res: SendResponseDto) {
     this.atsListBulk = res.atsDataList;
+    this.atsGenData = [];
     for (let i = 0; i < this.atsListBulk.length; i++) {
       this.atsGenData.push(this.atsListBulk[i].atsGeneralParamDto);
     }
@@ -120,41 +125,45 @@ export class ConstructionScore implements OnInit {
     for (let i = 0; i < atsBulk.length; i++) {
       for (let j = 0; j < atsGen.length; j++) {
 
-        let resMsg: resumeCalUpdate = new resumeCalUpdate();
+        if (atsBulk[i].atsGeneralId == atsGen[j].atsGeneralId) {
 
-        resMsg.atsGeneralId = atsGen[j].atsGeneralId;
-        resMsg.atsParamId = atsGen[j].atsParamId;
-        resMsg.category = atsGen[j].category;
-        resMsg.description = atsGen[j].description;
-        resMsg.max_points = atsGen[j].max_points;
-        resMsg.parameter = atsGen[j].parameter;
-        resMsg.penalty_points = atsGen[j].penalty_points;
-        resMsg.total_points = atsGen[j].total_points;
+          let resMsg: resumeCalUpdate = new resumeCalUpdate();
 
-        if (atsBulk[i].atsParamType == "positive") {
+          resMsg.atsGeneralId = atsGen[j].atsGeneralId;
+          resMsg.atsParamId = atsGen[j].atsParamId;
+          resMsg.category = atsGen[j].category;
+          resMsg.description = atsGen[j].description;
+          resMsg.max_points = atsGen[j].max_points;
+          resMsg.parameter = atsGen[j].parameter;
+          resMsg.penalty_points = atsGen[j].penalty_points;
+          resMsg.total_points = atsGen[j].total_points;
 
-          resMsg.msgDescription = "";
-          resMsg.msgParamType = atsBulk[i].atsParamType
-          resMsg.msgScore = atsBulk[i].atsScore
-          resMsg.msgPercentage = `${atsBulk[i].atsScore} %`;
+          if (atsBulk[i].atsParamType == "positive") {
 
-        } else if (atsBulk[i].atsParamType == "partial") {
+            resMsg.msgDescription = "";
+            resMsg.msgParamType = atsBulk[i].atsParamType
+            resMsg.msgScore = atsBulk[i].atsScore
+            resMsg.msgPercentage = `${atsBulk[i].atsScore} %`;
 
-          resMsg.msgDescription = "";
-          resMsg.msgParamType = atsBulk[i].atsParamType
-          resMsg.msgScore = atsBulk[i].atsScore
-          resMsg.msgPercentage = `${atsBulk[i].atsScore} %`;
+          } else if (atsBulk[i].atsParamType == "partial") {
 
-        } else if (atsBulk[i].atsParamType == "negative") {
+            resMsg.msgDescription = "";
+            resMsg.msgParamType = atsBulk[i].atsParamType
+            resMsg.msgScore = atsBulk[i].atsScore
+            resMsg.msgPercentage = `${atsBulk[i].atsScore} %`;
 
-          resMsg.msgDescription = "";
-          resMsg.msgParamType = atsBulk[i].atsParamType
-          resMsg.msgScore = atsBulk[i].atsScore
-          resMsg.msgPercentage = `${atsBulk[i].atsScore} %`;
+          } else if (atsBulk[i].atsParamType == "negative") {
+
+            resMsg.msgDescription = "";
+            resMsg.msgParamType = atsBulk[i].atsParamType
+            resMsg.msgScore = atsBulk[i].atsScore
+            resMsg.msgPercentage = `${atsBulk[i].atsScore} %`;
+
+          }
+
+          this.resMsgUpdate.push(resMsg);
 
         }
-
-        this.resMsgUpdate.push(resMsg);
 
       }
     }
@@ -166,7 +175,7 @@ export class ConstructionScore implements OnInit {
   messageUpdate(msgUpdate: resumeCalUpdate[]) {
 
     for (let k = 0; k < msgUpdate.length; k++) {
-      if (msgUpdate[k].atsGeneralId == 1) {
+      if (msgUpdate[k].atsGeneralId == 61) {
 
         if (msgUpdate[k].msgParamType == "positive") {
           msgUpdate[k].msgDescription = "Resume includes essential skills and technologies expected for this role";
@@ -176,7 +185,7 @@ export class ConstructionScore implements OnInit {
           msgUpdate[k].msgDescription = "Essential skills and technologies are missing";
         }
 
-      } else if (msgUpdate[k].atsGeneralId == 2) {
+      } else if (msgUpdate[k].atsGeneralId == 62) {
 
         if (msgUpdate[k].msgParamType == "positive") {
           msgUpdate[k].msgDescription = "Resume demonstrates a strong and well-balanced range of technical skills";
@@ -187,7 +196,7 @@ export class ConstructionScore implements OnInit {
         }
 
 
-      } else if (msgUpdate[k].atsGeneralId == 3) {
+      } else if (msgUpdate[k].atsGeneralId == 63) {
 
         if (msgUpdate[k].msgParamType == "positive") {
           msgUpdate[k].msgDescription = "Resume uses clear and consistent technology names without unnecessary abbreviations";
@@ -198,7 +207,7 @@ export class ConstructionScore implements OnInit {
         }
 
 
-      } else if (msgUpdate[k].atsGeneralId == 4) {
+      } else if (msgUpdate[k].atsGeneralId == 64) {
 
         if (msgUpdate[k].msgParamType == "positive") {
           msgUpdate[k].msgDescription = "Resume is in an ATS-friendly format and can be read accurately by screening systems";
@@ -209,7 +218,7 @@ export class ConstructionScore implements OnInit {
         }
 
 
-      } else if (msgUpdate[k].atsGeneralId == 5) {
+      } else if (msgUpdate[k].atsGeneralId == 65) {
 
         if (msgUpdate[k].msgParamType == "positive") {
           msgUpdate[k].msgDescription = "Resume layout is clean and simple";
@@ -220,7 +229,7 @@ export class ConstructionScore implements OnInit {
         }
 
 
-      } else if (msgUpdate[k].atsGeneralId == 6) {
+      } else if (msgUpdate[k].atsGeneralId == 66) {
 
         if (msgUpdate[k].msgParamType == "positive") {
           msgUpdate[k].msgDescription = "Resume uses clear, standard fonts that are easy to read";
@@ -231,7 +240,7 @@ export class ConstructionScore implements OnInit {
         }
 
 
-      } else if (msgUpdate[k].atsGeneralId == 7) {
+      } else if (msgUpdate[k].atsGeneralId == 67) {
 
         if (msgUpdate[k].msgParamType == "positive") {
           msgUpdate[k].msgDescription = "Resume includes all essential sections and is well-structured";
@@ -242,7 +251,7 @@ export class ConstructionScore implements OnInit {
         }
 
 
-      } else if (msgUpdate[k].atsGeneralId == 8) {
+      } else if (msgUpdate[k].atsGeneralId == 68) {
 
         if (msgUpdate[k].msgParamType == "positive") {
           msgUpdate[k].msgDescription = "Resume sections are ordered logically, making it easy for ATS systems to follow";
@@ -253,7 +262,7 @@ export class ConstructionScore implements OnInit {
         }
 
 
-      } else if (msgUpdate[k].atsGeneralId == 9) {
+      } else if (msgUpdate[k].atsGeneralId == 69) {
 
         if (msgUpdate[k].msgParamType == "positive") {
           msgUpdate[k].msgDescription = "Resume clearly demonstrates strong hands-on development experience";
@@ -264,7 +273,7 @@ export class ConstructionScore implements OnInit {
         }
 
 
-      } else if (msgUpdate[k].atsGeneralId == 10) {
+      } else if (msgUpdate[k].atsGeneralId == 70) {
 
         if (msgUpdate[k].msgParamType == "positive") {
           msgUpdate[k].msgDescription = "Experience uses clearly recognized software roles that ATS systems understand well";
@@ -275,7 +284,7 @@ export class ConstructionScore implements OnInit {
         }
 
 
-      } else if (msgUpdate[k].atsGeneralId == 11) {
+      } else if (msgUpdate[k].atsGeneralId == 71) {
 
         if (msgUpdate[k].msgParamType == "positive") {
           msgUpdate[k].msgDescription = "Career timeline is clearly presented and easy to interpret";
@@ -286,7 +295,7 @@ export class ConstructionScore implements OnInit {
         }
 
 
-      } else if (msgUpdate[k].atsGeneralId == 12) {
+      } else if (msgUpdate[k].atsGeneralId == 72) {
 
         if (msgUpdate[k].msgParamType == "positive") {
           msgUpdate[k].msgDescription = "Your experience clearly highlights measurable results and technical impact";
@@ -297,7 +306,7 @@ export class ConstructionScore implements OnInit {
         }
 
 
-      } else if (msgUpdate[k].atsGeneralId == 13) {
+      } else if (msgUpdate[k].atsGeneralId == 73) {
 
         if (msgUpdate[k].msgParamType == "positive") {
           msgUpdate[k].msgDescription = "Your technical skills are clearly listed and easy to identify";
@@ -308,7 +317,7 @@ export class ConstructionScore implements OnInit {
         }
 
 
-      } else if (msgUpdate[k].atsGeneralId == 14) {
+      } else if (msgUpdate[k].atsGeneralId == 74) {
 
         if (msgUpdate[k].msgParamType == "positive") {
           msgUpdate[k].msgDescription = "Your resume reflects awareness of standard software development practices";
@@ -319,7 +328,7 @@ export class ConstructionScore implements OnInit {
         }
 
 
-      } else if (msgUpdate[k].atsGeneralId == 15) {
+      } else if (msgUpdate[k].atsGeneralId == 75) {
 
         if (msgUpdate[k].msgParamType == "positive") {
           msgUpdate[k].msgDescription = "Your educational background aligns well with the role requirements";
@@ -330,7 +339,7 @@ export class ConstructionScore implements OnInit {
         }
 
 
-      } else if (msgUpdate[k].atsGeneralId == 16) {
+      } else if (msgUpdate[k].atsGeneralId == 76) {
 
         if (msgUpdate[k].msgParamType == "positive") {
           msgUpdate[k].msgDescription = "Education and certifications are clearly attributed to recognized institutions";
@@ -341,7 +350,7 @@ export class ConstructionScore implements OnInit {
         }
 
 
-      } else if (msgUpdate[k].atsGeneralId == 17) {
+      } else if (msgUpdate[k].atsGeneralId == 77) {
 
         if (msgUpdate[k].msgParamType == "positive") {
           msgUpdate[k].msgDescription = "Experience is described using strong, action-driven language";
@@ -352,7 +361,7 @@ export class ConstructionScore implements OnInit {
         }
 
 
-      } else if (msgUpdate[k].atsGeneralId == 18) {
+      } else if (msgUpdate[k].atsGeneralId == 78) {
 
         if (msgUpdate[k].msgParamType == "positive") {
           msgUpdate[k].msgDescription = "Resume is clean and free from spelling or grammatical issues";
@@ -363,7 +372,7 @@ export class ConstructionScore implements OnInit {
         }
 
 
-      } else if (msgUpdate[k].atsGeneralId == 19) {
+      } else if (msgUpdate[k].atsGeneralId == 79) {
 
         if (msgUpdate[k].msgParamType == "positive") {
           msgUpdate[k].msgDescription = "Your resume avoids graphical elements and remains fully ATS-friendly";
@@ -374,7 +383,7 @@ export class ConstructionScore implements OnInit {
         }
 
 
-      } else if (msgUpdate[k].atsGeneralId == 20) {
+      } else if (msgUpdate[k].atsGeneralId == 80) {
 
         if (msgUpdate[k].msgParamType == "positive") {
           msgUpdate[k].msgDescription = "Important resume information is placed, so to improve readability";

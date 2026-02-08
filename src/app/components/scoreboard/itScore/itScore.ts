@@ -63,6 +63,10 @@ export class ItScore implements OnInit {
     this.message = '';
     this.uploadState = 'idle';
 
+    this.atsGenData = [];
+    this.atsListBulk = [];
+    this.resMsgUpdate = [];
+
     const input = document.getElementById('resSelect') as HTMLInputElement;
     if (input) input.value = '';
   }
@@ -107,6 +111,7 @@ export class ItScore implements OnInit {
 
   resumeUploadFormat(res: SendResponseDto) {
     this.atsListBulk = res.atsDataList;
+    this.atsGenData = [];
     for (let i = 0; i < this.atsListBulk.length; i++) {
       this.atsGenData.push(this.atsListBulk[i].atsGeneralParamDto);
     }

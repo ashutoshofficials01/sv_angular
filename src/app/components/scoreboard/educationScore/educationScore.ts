@@ -120,42 +120,44 @@ export class EducationScore implements OnInit {
     for (let i = 0; i < atsBulk.length; i++) {
       for (let j = 0; j < atsGen.length; j++) {
 
-        let resMsg: resumeCalUpdate = new resumeCalUpdate();
+        if (atsBulk[i].atsGeneralId == atsGen[j].atsGeneralId) {
 
-        resMsg.atsGeneralId = atsGen[j].atsGeneralId;
-        resMsg.atsParamId = atsGen[j].atsParamId;
-        resMsg.category = atsGen[j].category;
-        resMsg.description = atsGen[j].description;
-        resMsg.max_points = atsGen[j].max_points;
-        resMsg.parameter = atsGen[j].parameter;
-        resMsg.penalty_points = atsGen[j].penalty_points;
-        resMsg.total_points = atsGen[j].total_points;
+          let resMsg: resumeCalUpdate = new resumeCalUpdate();
 
-        if (atsBulk[i].atsParamType == "positive") {
+          resMsg.atsGeneralId = atsGen[j].atsGeneralId;
+          resMsg.atsParamId = atsGen[j].atsParamId;
+          resMsg.category = atsGen[j].category;
+          resMsg.description = atsGen[j].description;
+          resMsg.max_points = atsGen[j].max_points;
+          resMsg.parameter = atsGen[j].parameter;
+          resMsg.penalty_points = atsGen[j].penalty_points;
+          resMsg.total_points = atsGen[j].total_points;
 
-          resMsg.msgDescription = "";
-          resMsg.msgParamType = atsBulk[i].atsParamType
-          resMsg.msgScore = atsBulk[i].atsScore
-          resMsg.msgPercentage = `${atsBulk[i].atsScore} %`;
+          if (atsBulk[i].atsParamType == "positive") {
 
-        } else if (atsBulk[i].atsParamType == "partial") {
+            resMsg.msgDescription = "";
+            resMsg.msgParamType = atsBulk[i].atsParamType
+            resMsg.msgScore = atsBulk[i].atsScore
+            resMsg.msgPercentage = `${atsBulk[i].atsScore} %`;
 
-          resMsg.msgDescription = "";
-          resMsg.msgParamType = atsBulk[i].atsParamType
-          resMsg.msgScore = atsBulk[i].atsScore
-          resMsg.msgPercentage = `${atsBulk[i].atsScore} %`;
+          } else if (atsBulk[i].atsParamType == "partial") {
 
-        } else if (atsBulk[i].atsParamType == "negative") {
+            resMsg.msgDescription = "";
+            resMsg.msgParamType = atsBulk[i].atsParamType
+            resMsg.msgScore = atsBulk[i].atsScore
+            resMsg.msgPercentage = `${atsBulk[i].atsScore} %`;
 
-          resMsg.msgDescription = "";
-          resMsg.msgParamType = atsBulk[i].atsParamType
-          resMsg.msgScore = atsBulk[i].atsScore
-          resMsg.msgPercentage = `${atsBulk[i].atsScore} %`;
+          } else if (atsBulk[i].atsParamType == "negative") {
 
+            resMsg.msgDescription = "";
+            resMsg.msgParamType = atsBulk[i].atsParamType
+            resMsg.msgScore = atsBulk[i].atsScore
+            resMsg.msgPercentage = `${atsBulk[i].atsScore} %`;
+
+          }
+
+          this.resMsgUpdate.push(resMsg);
         }
-
-        this.resMsgUpdate.push(resMsg);
-
       }
     }
 

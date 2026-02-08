@@ -29,35 +29,35 @@ export class ScoreService {
     }
 
     resumeUploadEducation(form: FormData): Observable<any> {
-        return this.http.post<any>(`${this.url}/resumeUploadIT`, form);
+        return this.http.post<any>(`${this.url}/resumeUploadEducation`, form);
     }
 
     resumeUploadBusiness(form: FormData): Observable<any> {
-        return this.http.post<any>(`${this.url}/resumeUploadTourism`, form);
+        return this.http.post<any>(`${this.url}/resumeUploadBusiness`, form);
     }
 
     resumeUploadFinance(form: FormData): Observable<any> {
-        return this.http.post<any>(`${this.url}/resumeUploadIT`, form);
+        return this.http.post<any>(`${this.url}/resumeUploadFinance`, form);
     }
 
     resumeUploadHealthcare(form: FormData): Observable<any> {
-        return this.http.post<any>(`${this.url}/resumeUploadTourism`, form);
+        return this.http.post<any>(`${this.url}/resumeUploadHealthcare`, form);
     }
 
     resumeUploadLegal(form: FormData): Observable<any> {
-        return this.http.post<any>(`${this.url}/resumeUploadIT`, form);
+        return this.http.post<any>(`${this.url}/resumeUploadLegal`, form);
     }
 
     resumeUploadGovernment(form: FormData): Observable<any> {
-        return this.http.post<any>(`${this.url}/resumeUploadTourism`, form);
+        return this.http.post<any>(`${this.url}/resumeUploadGovernment`, form);
     }
 
     resumeUploadDesign(form: FormData): Observable<any> {
-        return this.http.post<any>(`${this.url}/resumeUploadIT`, form);
+        return this.http.post<any>(`${this.url}/resumeUploadDesign`, form);
     }
 
     resumeUploadConstruction(form: FormData): Observable<any> {
-        return this.http.post<any>(`${this.url}/resumeUploadTourism`, form);
+        return this.http.post<any>(`${this.url}/resumeUploadConstruction`, form);
     }
 
 }

@@ -1,4 +1,4 @@
-import { NgModule, provideBrowserGlobalErrorListeners } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { BrowserModule, provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -53,6 +53,7 @@ import { TourismScore } from './components/scoreboard/tourismScore/tourismScore'
     provideBrowserGlobalErrorListeners(),
     provideClientHydration(withEventReplay())
   ],
-  bootstrap: [App]
+  bootstrap: [App],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

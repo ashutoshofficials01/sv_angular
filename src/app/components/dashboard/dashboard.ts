@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Autoplay, Pagination, EffectFade } from 'swiper/modules';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,6 +13,7 @@ export class Dashboard implements OnInit {
   formatType: any = Number;
   resumeCategory: any = "";
 
+swiperModules = [Autoplay, Pagination, EffectFade];
 
   constructor(private router: Router, private route: ActivatedRoute) { }
 
@@ -71,6 +73,60 @@ export class Dashboard implements OnInit {
     //   modal.show();
     // }
   }
+
+  getCategoryTitle(category: string): string {
+  const titles: any = {
+    it: 'Technology & IT',
+    finance: 'Finance & Accounting',
+    construction: 'Engineering & Construction',
+    healthcare: 'Healthcare',
+    education: 'Education & Academia',
+    business: 'Business & Management',
+    design: 'Creative & Design',
+    government: 'Government & Public Services',
+    tourism: 'Hospitality & Tourism',
+    legal: 'Legal & Compliance'
+  };
+
+  return titles[category] || '';
+}
+
+
+navigateToScore(category: string) {
+  switch (category) {
+    case 'it':
+      this.scorePageNavIt();
+      break;
+    case 'finance':
+      this.scorePageNavFinance();
+      break;
+    case 'construction':
+      this.scorePageNavConstruction();
+      break;
+    case 'healthcare':
+      this.scorePageNavHealthcare();
+      break;
+    case 'education':
+      this.scorePageNavEducation();
+      break;
+    case 'business':
+      this.scorePageNavBusiness();
+      break;
+    case 'design':
+      this.scorePageNavDesign();
+      break;
+    case 'government':
+      this.scorePageNavGovernment();
+      break;
+    case 'tourism':
+      this.scorePageNavTourism();
+      break;
+    case 'legal':
+      this.scorePageNavLegal();
+      break;
+  }
+}
+
 
 
 }

@@ -1,30 +1,22 @@
-<div class="min-h-screen bg-slate-50 flex flex-col">
-  <!-- Dashboard Navbar Section -->
-  <app-navbar></app-navbar>
+<!-- Dashboard Navbar Section -->
+<app-navbar></app-navbar>
 
-  <!-- Dashboard Body Section -->
-  <!-- <div class="dashboard-body">
-    <div class="dashboard-div">
-      <h1 class="h1Tag">ScanVera Dashboard</h1>
-      <p class="para">Your ATS Score Analytics</p>
-    </div>
-  </div> -->
-
-  
-  <div class="flex-1 max-w-7xl mx-auto px-6 py-10">
-
-      <section class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
+<div
+  class="min-h-[93vh] flex flex-col bg-gradient-to-br from-blue-50 via-white to-green-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 transition-colors duration-300"
+>
+  <div class="flex-1 max-w-7xl mx-auto px-6 pt-10">
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-12">
       <div>
-        <h2 class="text-2xl md:text-3xl font-semibold text-slate-800 mb-4">
+        <h2 class="text-2xl md:text-3xl font-bold text-blue-700 dark:text-[#71e4b9] mb-4">
           Build ATS-Approved Resumes
         </h2>
 
-        <p class="text-slate-600 leading-relaxed mb-6">
-          Our ATS Resume Checker analyzes your resume against modern Applicant
-          Tracking Systems to ensure maximum visibility and better shortlisting.
+        <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-6">
+          Our ATS Resume Checker analyzes your resume against modern Applicant Tracking Systems to
+          ensure maximum visibility and better shortlisting.
         </p>
 
-        <ul class="space-y-3 text-slate-700">
+        <ul class="space-y-3 text-slate-700 dark:text-slate-300">
           <li>✔ Keyword optimization</li>
           <li>✔ Formatting compatibility</li>
           <li>✔ Industry-specific checks</li>
@@ -33,72 +25,161 @@
       </div>
 
       <!-- Right Carousel -->
-      <div
-        class="w-full h-64 md:h-72 bg-white rounded-xl shadow-sm border flex items-center justify-center"
+      <!-- <div
+        class="w-full h-64 md:h-72 bg-white dark:bg-slate-800 rounded-2xl shadow-lg border border-blue-100 dark:border-slate-700 flex items-center justify-center transition-colors duration-300"
       >
-        <p class="text-slate-500 text-center px-4">
+        <p class="text-slate-500 dark:text-slate-400 text-center px-6">
           Carousel containing information about the app
         </p>
+      </div> -->
+
+      <div
+        class="w-full h-72 rounded-2xl overflow-hidden bg-white dark:bg-slate-800 shadow-xl border border-blue-100 dark:border-slate-700 dark:shadow-[0_0_40px_rgba(59,130,246,0.25)] transition-all duration-500"
+      >
+        <swiper-container
+          slides-per-view="1"
+          autoplay-delay="3500"
+          autoplay-disable-on-interaction="false"
+          effect="fade"
+          fade-effect-cross-fade="true"
+          pagination="true"
+          class="h-full"
+        >
+          <!-- Slide 1 -->
+          <swiper-slide>
+            <div class="flex flex-col items-center justify-center h-full p-6 text-center  transition-opacity duration-700">
+              <svg viewBox="0 0 200 200" class="w-32 h-32">
+                <circle cx="100" cy="100" r="80" class="fill-blue-100 dark:fill-blue-900/40" />
+                <circle
+                  cx="100"
+                  cy="100"
+                  r="55"
+                  class="fill-none stroke-blue-600 dark:stroke-blue-400"
+                  stroke-width="12"
+                  stroke-dasharray="260"
+                  stroke-dashoffset="40"
+                  stroke-linecap="round"
+                />
+                <text
+                  x="100"
+                  y="110"
+                  text-anchor="middle"
+                  class="fill-green-600 dark:fill-green-400 font-bold text-xl"
+                >
+                  92%
+                </text>
+              </svg>
+
+              <h4 class="text-lg font-semibold text-blue-700 dark:text-blue-400 mt-4">
+                Instant ATS Score
+              </h4>
+
+              <p class="text-sm text-slate-600 dark:text-slate-300 mt-2">
+                Get real-time compatibility insights for your resume.
+              </p>
+            </div>
+          </swiper-slide>
+
+          <!-- Slide 2 -->
+          <swiper-slide>
+            <div class="flex flex-col items-center justify-center h-full p-6 text-center transition-opacity duration-700">
+              <svg viewBox="0 0 200 200" class="w-32 h-32">
+                <rect
+                  x="50"
+                  y="40"
+                  width="100"
+                  height="120"
+                  rx="12"
+                  class="fill-blue-100 dark:fill-blue-900/40"
+                />
+                <circle
+                  cx="90"
+                  cy="90"
+                  r="25"
+                  class="fill-none stroke-green-500"
+                  stroke-width="6"
+                />
+                <line
+                  x1="110"
+                  y1="110"
+                  x2="135"
+                  y2="135"
+                  class="stroke-green-500"
+                  stroke-width="6"
+                  stroke-linecap="round"
+                />
+              </svg>
+
+              <h4 class="text-lg font-semibold text-blue-700 dark:text-blue-400 mt-4">
+                Keyword Optimization
+              </h4>
+
+              <p class="text-sm text-slate-600 dark:text-slate-300 mt-2">
+                Improve job match rate with smart keyword analysis.
+              </p>
+            </div>
+          </swiper-slide>
+        </swiper-container>
       </div>
     </section>
   </div>
 
+  <!-- <div class="max-w-md mb-4 ml-6 bg-white p-6 rounded-xl shadow-sm border">
+    <label class="block text-sm font-medium text-slate-700 mb-2">
+      Choose Resume Category
+      <span class="text-red-500">*</span>
+    </label>
+    <select
+      class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-slate-700"
+      [(ngModel)]="resumeCategory"
+      placeholder="Choose Resume Category"
+      (change)="onCategoryChange(resumeCategory)"
+    >
+      <option value="" hidden [defaultSelected]="true">Choose Category</option>
+      <option value="it" data-bs-toggle="modal" data-bs-target="#categoryItModal">
+        Technology & IT
+      </option>
+      <option value="finance" data-bs-toggle="modal" data-bs-target="#categoryFinanceModal">
+        Finance & Accounting
+      </option>
+      <option
+        value="construction"
+        data-bs-toggle="modal"
+        data-bs-target="#categoryConstructionModal"
+      >
+        Engineering & Construction
+      </option>
+      <option value="healthcare" data-bs-toggle="modal" data-bs-target="#categoryHealthcareModal">
+        Healthcare
+      </option>
+      <option value="education" data-bs-toggle="modal" data-bs-target="#categoryEducationModal">
+        Education & Academia
+      </option>
+      <option value="business" data-bs-toggle="modal" data-bs-target="#categoryBusinessModal">
+        Business & Management
+      </option>
+      <option value="design" data-bs-toggle="modal" data-bs-target="#categoryDesignModal">
+        Creative & Design
+      </option>
+      <option value="government" data-bs-toggle="modal" data-bs-target="#categoryGovernmentModal">
+        Government & Public Services
+      </option>
+      <option value="tourism" data-bs-toggle="modal" data-bs-target="#categoryTourismModal">
+        Hospitality & Tourism
+      </option>
+      <option value="legal" data-bs-toggle="modal" data-bs-target="#categoryLegalModal">
+        Legal & Compliance
+      </option>
+    </select>
+  </div>
 
 
-    <div class="max-w-md mb-4 ml-6 bg-white p-6 rounded-xl shadow-sm border">
-       <label
-        class="block text-sm font-medium text-slate-700 mb-2">
-        Choose Resume Category
-        <span class="text-red-500">*</span>
-      </label>
-          <!-- <p>Choose Resume Category<span style="color: crimson; zoom: 80%">*</span></p> -->
-          <select class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-slate-700" [(ngModel)]="resumeCategory" placeholder="Choose Resume Category" (change)="onCategoryChange(resumeCategory)">
-            <option value="" hidden [defaultSelected]="true">Choose Category</option>
-            <option value="it" data-bs-toggle="modal" data-bs-target="#categoryItModal">
-              Technology & IT
-            </option>
-            <option value="finance" data-bs-toggle="modal" data-bs-target="#categoryFinanceModal">
-              Finance & Accounting
-            </option>
-            <option value="construction" data-bs-toggle="modal" data-bs-target="#categoryConstructionModal">
-              Engineering & Construction
-            </option>
-            <option value="healthcare" data-bs-toggle="modal" data-bs-target="#categoryHealthcareModal">
-              Healthcare
-            </option>
-            <option value="education" data-bs-toggle="modal" data-bs-target="#categoryEducationModal">
-              Education & Academia
-            </option>
-            <option value="business" data-bs-toggle="modal" data-bs-target="#categoryBusinessModal">
-              Business & Management
-            </option>
-            <option value="design" data-bs-toggle="modal" data-bs-target="#categoryDesignModal">
-              Creative & Design
-            </option>
-            <option value="government" data-bs-toggle="modal" data-bs-target="#categoryGovernmentModal">
-              Government & Public Services
-            </option>
-            <option value="tourism" data-bs-toggle="modal" data-bs-target="#categoryTourismModal">
-              Hospitality & Tourism
-            </option>
-            <option value="legal" data-bs-toggle="modal" data-bs-target="#categoryLegalModal">
-              Legal & Compliance
-            </option>
-          </select>
-    </div>
-
-
-  <!-- <div>
-    <h1>Job Opening</h1>
-    <button>view openings</button>
-  </div> -->
   @if (resumeCategory == 'it') {
     <div class="modal fade" id="categoryItModal" tabindex="-1" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title">Technology & IT</h5>
-            <!-- <button type="button" class="btn-close" data-bs-dismiss="modal"></button> -->
           </div>
 
           <div class="modal-body">
@@ -116,7 +197,6 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title">Finance & Accounting</h5>
-            <!-- <button type="button" class="btn-close" data-bs-dismiss="modal"></button> -->
           </div>
 
           <div class="modal-body">
@@ -134,7 +214,6 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title">Engineering & Construction</h5>
-            <!-- <button type="button" class="btn-close" data-bs-dismiss="modal"></button> -->
           </div>
 
           <div class="modal-body">
@@ -154,7 +233,6 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title">Healthcare</h5>
-            <!-- <button type="button" class="btn-close" data-bs-dismiss="modal"></button> -->
           </div>
 
           <div class="modal-body">
@@ -172,7 +250,6 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title">Education & Academia</h5>
-            <!-- <button type="button" class="btn-close" data-bs-dismiss="modal"></button> -->
           </div>
 
           <div class="modal-body">
@@ -190,7 +267,6 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title">Business & Management</h5>
-            <!-- <button type="button" class="btn-close" data-bs-dismiss="modal"></button> -->
           </div>
 
           <div class="modal-body">
@@ -208,7 +284,6 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title">Creative & Design</h5>
-            <!-- <button type="button" class="btn-close" data-bs-dismiss="modal"></button> -->
           </div>
 
           <div class="modal-body">
@@ -226,7 +301,6 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title">Government & Public Services</h5>
-            <!-- <button type="button" class="btn-close" data-bs-dismiss="modal"></button> -->
           </div>
 
           <div class="modal-body">
@@ -244,7 +318,6 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title">Hospitality & Tourism</h5>
-            <!-- <button type="button" class="btn-close" data-bs-dismiss="modal"></button> -->
           </div>
 
           <div class="modal-body">
@@ -262,7 +335,6 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title">Legal & Compliance</h5>
-            <!-- <button type="button" class="btn-close" data-bs-dismiss="modal"></button> -->
           </div>
 
           <div class="modal-body">
@@ -274,10 +346,108 @@
         </div>
       </div>
     </div>
+  } -->
+
+  <!-- <div
+    class="max-w-md mb-6 ml-6 bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-md border border-blue-100 dark:border-slate-700 transition-colors duration-300"
+  >
+    <label class="block text-sm font-semibold text-blue-700 dark:text-blue-400 mb-3">
+      Choose Resume Category
+      <span class="text-red-500">*</span>
+    </label>
+
+    <select
+      class="w-full px-4 py-3 rounded-lg border bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-200 border-blue-200 dark:border-slate-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200"
+      [(ngModel)]="resumeCategory"
+      (change)="onCategoryChange(resumeCategory)"
+    >
+      <option value="" hidden>Select Category</option>
+      <option value="it">Technology & IT</option>
+      <option value="finance">Finance & Accounting</option>
+      <option value="construction">Engineering & Construction</option>
+      <option value="healthcare">Healthcare</option>
+      <option value="education">Education & Academia</option>
+      <option value="business">Business & Management</option>
+      <option value="design">Creative & Design</option>
+      <option value="government">Government & Public Services</option>
+      <option value="tourism">Hospitality & Tourism</option>
+      <option value="legal">Legal & Compliance</option>
+    </select>
+  </div> -->
+
+  <!-- Category Section -->
+  <div class="mb-8 flex justify-center">
+    <div
+      class="w-full max-w-xl bg-white dark:bg-slate-800 rounded-2xl shadow-lg border border-blue-100 dark:border-slate-700 p-8 transition-colors duration-300"
+    >
+      <h3 class="text-lg font-semibold text-blue-700 dark:text-blue-400 mb-6 text-center">
+        Choose Your Resume Category
+        <span class="text-red-500">*</span>
+      </h3>
+
+      <div class="relative">
+        <select
+          [(ngModel)]="resumeCategory"
+          (change)="onCategoryChange(resumeCategory)"
+          class="w-full appearance-none px-5 py-4 pr-12 rounded-xl bg-blue-50 dark:bg-slate-900 text-slate-700 dark:text-slate-200 border border-blue-200 dark:border-slate-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 text-lg transition-all duration-300"
+        >
+          <option value="" hidden>Select Category</option>
+          <option value="it">Technology & IT</option>
+          <option value="finance">Finance & Accounting</option>
+          <option value="construction">Engineering & Construction</option>
+          <option value="healthcare">Healthcare</option>
+          <option value="education">Education & Academia</option>
+          <option value="business">Business & Management</option>
+          <option value="design">Creative & Design</option>
+          <option value="government">Government & Public Services</option>
+          <option value="tourism">Hospitality & Tourism</option>
+          <option value="legal">Legal & Compliance</option>
+        </select>
+
+        <div
+          class="pointer-events-none absolute inset-y-0 right-4 flex items-center text-blue-600 dark:text-blue-400"
+        >
+          ▼
+        </div>
+      </div>
+
+      <p class="mt-4 text-sm text-slate-500 dark:text-slate-400 text-center">
+        Select your industry to generate an optimized ATS scoring experience.
+      </p>
+    </div>
+  </div>
+
+  @if (resumeCategory) {
+    <div class="fixed inset-0 flex items-center justify-center bg-black/40 backdrop-blur-sm z-50">
+      <div
+        class="w-full max-w-md bg-white dark:bg-slate-800 rounded-2xl shadow-xl border border-blue-100 dark:border-slate-700 p-6 transition-all duration-300"
+      >
+        <div class="mb-4">
+          <h3 class="text-xl font-semibold text-blue-700 dark:text-blue-400">
+            {{ getCategoryTitle(resumeCategory) }}
+          </h3>
+        </div>
+
+        <p class="text-slate-600 dark:text-slate-300 mb-6">To check your Resume's ATS Score:</p>
+
+        <button
+          class="w-full py-3 rounded-lg bg-gradient-to-r from-blue-600 to-green-500 hover:from-blue-700 hover:to-green-600 text-white font-semibold shadow-md transition-all duration-300"
+          (click)="navigateToScore(resumeCategory)"
+        >
+          Check ATS Score
+        </button>
+
+        <button
+          class="mt-4 text-sm text-slate-500 dark:text-slate-400 hover:text-red-500"
+          (click)="resumeCategory = ''"
+        >
+          Cancel
+        </button>
+      </div>
+    </div>
   }
 
-   <footer class="border-t bg-white py-4 text-center text-sm text-slate-500">
+  <footer class="border-t bg-white py-4 text-center text-sm text-slate-500">
     © 2026 ScanVera. All rights reserved.
   </footer>
-
 </div>

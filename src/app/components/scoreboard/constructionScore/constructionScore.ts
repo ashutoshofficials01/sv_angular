@@ -265,20 +265,20 @@ export class ConstructionScore implements OnInit {
       } else if (msgUpdate[k].atsGeneralId == 69) {
 
         if (msgUpdate[k].msgParamType == "positive") {
-          msgUpdate[k].msgDescription = "Resume clearly demonstrates strong hands-on development experience";
+          msgUpdate[k].msgDescription = "Resume clearly demonstrates strong relevant hands-on experience";
         } else if (msgUpdate[k].msgParamType == "partial") {
-          msgUpdate[k].msgDescription = "Some development experience is present, but it could be strengthened further";
+          msgUpdate[k].msgDescription = "Some relevant experience is present, but it could be strengthened further";
         } else if (msgUpdate[k].msgParamType == "negative") {
-          msgUpdate[k].msgDescription = "Lack of hands-on development experience is significantly reducing score";
+          msgUpdate[k].msgDescription = "Lack of relevant hands-on experience is significantly reducing score";
         }
 
 
       } else if (msgUpdate[k].atsGeneralId == 70) {
 
         if (msgUpdate[k].msgParamType == "positive") {
-          msgUpdate[k].msgDescription = "Experience uses clearly recognized software roles that ATS systems understand well";
+          msgUpdate[k].msgDescription = "Experience uses clearly recognized designated roles that ATS systems understand well";
         } else if (msgUpdate[k].msgParamType == "partial") {
-          msgUpdate[k].msgDescription = "Some recognized software roles are used, but clarity can be improved";
+          msgUpdate[k].msgDescription = "Some recognized relevant roles are used, but clarity can be improved";
         } else if (msgUpdate[k].msgParamType == "negative") {
           msgUpdate[k].msgDescription = "Unclear or uncommon role titles are reducing how ATS systems interpret your experience";
         }
@@ -298,18 +298,18 @@ export class ConstructionScore implements OnInit {
       } else if (msgUpdate[k].atsGeneralId == 72) {
 
         if (msgUpdate[k].msgParamType == "positive") {
-          msgUpdate[k].msgDescription = "Your experience clearly highlights measurable results and technical impact";
+          msgUpdate[k].msgDescription = "Your experience clearly highlights measurable outcomes and technical impact";
         } else if (msgUpdate[k].msgParamType == "partial") {
-          msgUpdate[k].msgDescription = "Some measurable impact is shown, but more concrete results would strengthen it";
+          msgUpdate[k].msgDescription = "Some measurable impact is shown, but more concrete outcomes would strengthen it";
         } else if (msgUpdate[k].msgParamType == "negative") {
-          msgUpdate[k].msgDescription = "Lack of measurable results is reducing the effectiveness of your experience section";
+          msgUpdate[k].msgDescription = "Lack of measurable outcomes is reducing the effectiveness of your experience section";
         }
 
 
       } else if (msgUpdate[k].atsGeneralId == 73) {
 
         if (msgUpdate[k].msgParamType == "positive") {
-          msgUpdate[k].msgDescription = "Your technical skills are clearly listed and easy to identify";
+          msgUpdate[k].msgDescription = "Your technical skillset are clearly listed and easy to identify";
         } else if (msgUpdate[k].msgParamType == "partial") {
           msgUpdate[k].msgDescription = "Some technical skills are listed, but clearer and more complete coverage is needed";
         } else if (msgUpdate[k].msgParamType == "negative") {
@@ -320,11 +320,11 @@ export class ConstructionScore implements OnInit {
       } else if (msgUpdate[k].atsGeneralId == 74) {
 
         if (msgUpdate[k].msgParamType == "positive") {
-          msgUpdate[k].msgDescription = "Your resume reflects awareness of standard software development practices";
+          msgUpdate[k].msgDescription = "Your resume reflects awareness of standard relevant practices";
         } else if (msgUpdate[k].msgParamType == "partial") {
-          msgUpdate[k].msgDescription = "Some software development practices are mentioned, but coverage is limited";
+          msgUpdate[k].msgDescription = "Some relevant practices are mentioned, but coverage is limited";
         } else if (msgUpdate[k].msgParamType == "negative") {
-          msgUpdate[k].msgDescription = "Lack of standard development practices is reducing your ATS score";
+          msgUpdate[k].msgDescription = "Lack of standard relevant practices is reducing your ATS score";
         }
 
 

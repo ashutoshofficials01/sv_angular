@@ -13,6 +13,8 @@ import { heroCheckBadgeSolid } from '@ng-icons/heroicons/solid';
 import { heroTrashSolid } from '@ng-icons/heroicons/solid';
 import { heroArrowLeftStartOnRectangle } from '@ng-icons/heroicons/outline';
 import { heroArrowLeftCircleSolid } from '@ng-icons/heroicons/solid';
+import { heroXCircleSolid } from '@ng-icons/heroicons/solid';
+import { heroExclamationTriangleSolid } from '@ng-icons/heroicons/solid';
 
 import { Navbar } from './components/navbar/navbar';
 
@@ -23,8 +25,8 @@ import { Navbar } from './components/navbar/navbar';
   imports: [
     RouterModule,
     CommonModule,
-    NgIconsModule.withIcons({ heroArrowLeftCircleSolid, heroArrowLeftStartOnRectangle, heroUserCircleSolid, heroHomeSolid, heroBell, heroBellAlert, heroDocumentText, heroCloudArrowUpSolid, heroTrashSolid, heroCheckBadgeSolid }),
-    NgIconsModule.withIcons({ heroArrowLeftCircleSolid, heroArrowLeftStartOnRectangle, heroUserCircleSolid, heroHomeSolid, heroBell, heroBellAlert, heroDocumentText, heroCloudArrowUpSolid, heroTrashSolid, heroCheckBadgeSolid }),
+    NgIconsModule.withIcons({ heroExclamationTriangleSolid, heroXCircleSolid, heroArrowLeftCircleSolid, heroArrowLeftStartOnRectangle, heroUserCircleSolid, heroHomeSolid, heroBell, heroBellAlert, heroDocumentText, heroCloudArrowUpSolid, heroTrashSolid, heroCheckBadgeSolid }),
+    NgIconsModule.withIcons({ heroExclamationTriangleSolid, heroXCircleSolid, heroArrowLeftCircleSolid, heroArrowLeftStartOnRectangle, heroUserCircleSolid, heroHomeSolid, heroBell, heroBellAlert, heroDocumentText, heroCloudArrowUpSolid, heroTrashSolid, heroCheckBadgeSolid }),
   ],
   exports: [Navbar]
 })

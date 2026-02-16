@@ -59,5 +59,66 @@
       {{ message }}
     </h5>
   }
-  <!-- } -->
+
+  @if (uploadState === 'done' && isSuccess === true) {
+    <ul>
+      <span class="file-btn" (click)="openMsgModal('positive')">
+        <ng-icon name="heroCheckBadgeSolid"></ng-icon> Positive factors
+      </span>
+    </ul>
+    <ul>
+      <span class="file-btn" (click)="openMsgModal('partial')">
+        <ng-icon name="heroExclamationTriangleSolid"></ng-icon> Partial factors
+      </span>
+    </ul>
+    <ul>
+      <span class="file-btn" (click)="openMsgModal('negative')">
+        <ng-icon name="heroXCircleSolid"></ng-icon> Negative factors
+      </span>
+    </ul>
+  }
+
+  @if (activeModalType) {
+    <br />
+    <div
+      class="modal"
+     
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">
+              {{ activeModalType | titlecase }} Factors affecting ATS score
+            </h5>
+            <button (click)="closeModal()">
+              <b>✕</b>
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <!-- <ol style="text-align: left !important">
+              @for (i of filteredMessages; track $index) {
+                @if (i.msgParamType === activeModalType) {
+                  <li [title]="i.msgDescription">
+                    <b>{{ $index + 1 }} : {{ limitText(i.msgDescription) }}</b>
+                  </li>
+                }
+              }
+            </ol> -->
+            <ol  style="text-align: left !important;">
+              @for (i of filteredMessages; track $index) {
+                <li class="hover-item" [title]="i.msgDescription" style="overflow-y: scroll;">
+                  <span class="hover-number">{{ $index + 1 }}</span>
+                  <span class="hover-text">
+                    {{ limitText(i.msgDescription) }}
+                  </span>
+                </li>
+              }
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br />
+  }
 </div>

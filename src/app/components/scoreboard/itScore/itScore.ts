@@ -22,6 +22,13 @@ export class ItScore implements OnInit {
   atsListBulk: AtsListDto[] = [];
   atsGenData: AtsGenParamDto[] = [];
   resMsgUpdate: resumeCalUpdate[] = [];
+  // positiveResp: any = 'positiveResponse';
+  // partialResp: any = 'partialResponse';
+  // negativeResp: any = 'negativeResponse';
+  positiveModal: boolean = false;
+  partialModal: boolean = false;
+  negativeModal: boolean = false;
+  activeModalType: 'positive' | 'partial' | 'negative' | null = null;
 
   constructor(private router: Router, private route: ActivatedRoute, private scoreService: ScoreService, private cdr: ChangeDetectorRef) { }
 
@@ -117,14 +124,9 @@ export class ItScore implements OnInit {
     }
 
     this.generalDataFormat(this.atsGenData, this.atsListBulk);
-
-
   }
 
   generalDataFormat(atsGen: AtsGenParamDto[], atsBulk: AtsListDto[]) {
-
-
-
     for (let i = 0; i < atsBulk.length; i++) {
       for (let j = 0; j < atsGen.length; j++) {
 
@@ -165,21 +167,15 @@ export class ItScore implements OnInit {
           }
 
           this.resMsgUpdate.push(resMsg);
-
         }
-
       }
     }
-
-
 
     this.messageUpdate(this.resMsgUpdate);
 
   }
 
   messageUpdate(msgUpdate: resumeCalUpdate[]) {
-
-
 
     for (let k = 0; k < msgUpdate.length; k++) {
       if (msgUpdate[k].atsGeneralId == 1) {
@@ -412,6 +408,65 @@ export class ItScore implements OnInit {
 
 
 
+  // openMsgModal(resp: any) {
+  //   if (resp === 'positiveResponse') {
+  //     const modal = new (window as any).bootstrap.Modal(
+  //       document.getElementById('positiveResponseModal')
+  //     );
+  //     this.positiveModal = true;
+  //     modal.show();
 
+  //   } else if (resp === 'partialResponse') {
+  //     const modal = new (window as any).bootstrap.Modal(
+  //       document.getElementById('partialResponseModal')
+  //     );
+  //     this.partialModal = true;
+  //     modal.show();
+
+  //   } else if (resp === 'negativeResponse') {
+  //     const modal = new (window as any).bootstrap.Modal(
+  //       document.getElementById('negativeResponseModal')
+  //     );
+  //     this.negativeModal = true;
+  //     modal.show();
+
+  //   }
+  // }
+
+  openMsgModal(type: 'positive' | 'partial' | 'negative') {
+    this.positiveModal = false;
+    this.partialModal = false;
+    this.negativeModal = false;
+
+    if (type === 'positive') {
+      this.positiveModal = true;
+      this.activeModalType = type;
+    } else if (type === 'partial') {
+      this.partialModal = true;
+      this.activeModalType = type;
+    } else if (type === 'negative') {
+      this.negativeModal = true;
+      this.activeModalType = type;
+    }
+  }
+
+  closeModal() {
+    this.positiveModal = false;
+    this.partialModal = false;
+    this.negativeModal = false;
+
+    this.activeModalType = null;
+  }
+
+  limitText(text: string, limit: number = 65): string {
+    if (!text) return '';
+    return text.length > limit ? text.substring(0, limit) + '...' : text;
+  }
+
+  get filteredMessages() {
+    return this.resMsgUpdate.filter(
+      msg => msg.msgParamType === this.activeModalType
+    );
+  }
 
 }

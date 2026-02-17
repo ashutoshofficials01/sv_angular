@@ -55,3 +55,33 @@ export class resumeCalUpdate {
     msgScore: any = Number;
     msgPercentage: any = String;
 }
+
+export class ATSDataListDto {
+    userDataList: ATSUserListDto[] = [];
+    resumeDataList: ATSResumeListDto[] = [];
+}
+
+export class ATSUserListDto {
+    userModifiedOn: any = String;
+    userCreatedOn: any = String;
+    userName: any = String;
+    statusId: any = Number;
+    fullName: any = String;
+    emailId: any = String;
+    userRegistrationCount: any = Number;
+    activeStatus: any = Number;
+    role: any = String;
+}
+
+export class ATSResumeListDto {
+    userId: any = Number;
+    resModifiedOn: any = String;
+    resCreatedOn: any = String;
+    fileName: any = String;
+    atsScore: any = Number;
+    activeStatus: any = Number;
+    resUploadId: any = Number;
+    resumeUploadCount: any = Number;
+}
+
+

@@ -21,3 +21,165 @@
   /* 🚫 prevents click */
   opacity: 0.8;
 }
+
+.dashboard-body {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  min-height: 60vh !important;
+  text-align: center !important;
+  padding: 2rem 1rem !important;
+  gap: 1rem !important;
+}
+
+.dashboard-div {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+}
+
+.h1Tag {
+  margin: 0 !important;
+  font-size: 2.5rem !important;
+  font-weight: 700 !important;
+  color: #1f2937 !important;
+}
+
+.para {
+  margin: 0 !important;
+  font-size: 1.25rem !important;
+  color: #6b7280 !important;
+  max-width: 400px !important;
+}
+
+/* - - - MODAL - - - */
+
+/* Force modal visibility when Angular renders it */
+.modal {
+  position: fixed !important;
+  inset: 0;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: 1050;
+  opacity: 1 !important;
+  pointer-events: auto;
+}
+
+/* Modal dialog */
+.modal-dialog {
+  max-width: 640px;
+  width: 90%;
+  margin: 0 !important;
+}
+
+/* Modal content */
+.modal-content {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 28px 32px;
+  border: none;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+}
+
+/* Header */
+.modal-header {
+  border-bottom: none;
+  padding-bottom: 12px;
+}
+
+.modal-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+/* Body */
+.modal-body {
+  text-align: center;
+}
+
+.modal-body h3 {
+  font-size: 1.15rem;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+/* Button */
+.modal-body button {
+  margin-left: 10px;
+  padding: 6px 16px;
+  font-size: 0.95rem;
+  border-radius: 20px;
+}
+
+.lefty {
+  justify-content: left !important;
+  justify-items: left !important;
+  position: relative;
+}
+
+/* Pop animation (Angular-friendly) */
+.modal-dialog {
+  animation: modalPop 0.25s ease-out;
+}
+
+@keyframes modalPop {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.hover-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.hover-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+/* Number default style */
+.hover-number {
+  font-weight: 600;
+  color: #6b7280;
+  transition: all 0.25s ease;
+}
+
+/* Text default */
+.hover-text {
+  font-weight: 500;
+  transition: all 0.25s ease;
+}
+
+/* ✨ HOVER EFFECT */
+.hover-item:hover {
+  background: #f3f4f6;
+  transform: translateX(4px);
+}
+
+.hover-item:hover .hover-number {
+  color: #2563eb;
+  transform: scale(1.2);
+}
+
+.hover-item:hover .hover-text {
+  color: #111827;
+  font-weight: 600;
+}
+
+/* X X X MODAL X X X */

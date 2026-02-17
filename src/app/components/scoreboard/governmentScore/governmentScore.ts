@@ -24,6 +24,11 @@ export class GovernmentScore implements OnInit {
   atsGenData: AtsGenParamDto[] = [];
   resMsgUpdate: resumeCalUpdate[] = [];
 
+  positiveModal: boolean = false;
+  partialModal: boolean = false;
+  negativeModal: boolean = false;
+  activeModalType: 'positive' | 'partial' | 'negative' | null = null;
+
   constructor(private router: Router, private route: ActivatedRoute, private scoreService: ScoreService, private cdr: ChangeDetectorRef) { }
 
   ngOnInit(): void {
@@ -395,6 +400,42 @@ export class GovernmentScore implements OnInit {
       console.log("Message GeneralId :: ", msgUpdate[k].atsGeneralId, "\n");
     }
 
+  }
+
+  openMsgModal(type: 'positive' | 'partial' | 'negative') {
+    this.positiveModal = false;
+    this.partialModal = false;
+    this.negativeModal = false;
+
+    if (type === 'positive') {
+      this.positiveModal = true;
+      this.activeModalType = type;
+    } else if (type === 'partial') {
+      this.partialModal = true;
+      this.activeModalType = type;
+    } else if (type === 'negative') {
+      this.negativeModal = true;
+      this.activeModalType = type;
+    }
+  }
+
+  closeModal() {
+    this.positiveModal = false;
+    this.partialModal = false;
+    this.negativeModal = false;
+
+    this.activeModalType = null;
+  }
+
+  limitText(text: string, limit: number = 65): string {
+    if (!text) return '';
+    return text.length > limit ? text.substring(0, limit) + '...' : text;
+  }
+
+  get filteredMessages() {
+    return this.resMsgUpdate.filter(
+      msg => msg.msgParamType === this.activeModalType
+    );
   }
 
 

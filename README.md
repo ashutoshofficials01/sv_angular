@@ -1,59 +1,37 @@
-# SvAngular
+# ScanVera - Frontend (Angular)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.0.
+Resume Management System Frontend. Handles uploads, listing, filtering, responsive UI, and API integration.
 
-## Development server
+## 🚀 Features
+- Registration
+- Resume, CV upload & validation   
+- Dashboard & tooltips  
+- Responsive UI design  
+- Error handling & loading uploading states
+- ATS impacting score generator and providing pointers
 
-To start a local development server, run:
+## 🛠️ Tech Stack
+| Frontend | Tools |  
+|----------|-------|  
+| Angular 14+ | TypeScript, Bootstrap, RxJS |  
 
-```bash
-ng serve
-```
+## ⚙️ Quick Setup
+1. `git clone https://github.com/ashutoshofficials01/svAngular.git`  
+2. `cd svAngular`  
+3. `npm install`  
+4. `ng serve -o` → Open http://localhost:4200  
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+**Backend:** [svSpringboot](https://github.com/ashutoshofficials01/svSpringboot) (runs on :8082)
 
-## Code scaffolding
+## 📸 Screenshots
+Register - src/assets/register.png
+Login - src/assets/login.png
+Dashboard - src/assets/dashboard.png
+Field-wise ATS scan board - src/assets/atsScoreboard.png
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 📫 Connect With Me
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+LinkedIn: [(Add your LinkedIn)](https://www.linkedin.com/in/ashutoshofficials01)
+Email: ashutosh.officials01@gmail.com
+Phone: +91-6265111040, +91-6260083674
+Address - Chennai, Tamil Nadu, India

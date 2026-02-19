@@ -30,7 +30,6 @@ Dashboard - src/assets/dashboard.png
 Field-wise ATS scan board - src/assets/atsScoreboard.png
 
 ## 📫 Connect With Me
-
 LinkedIn: [(Add your LinkedIn)](https://www.linkedin.com/in/ashutoshofficials01)
 Email: ashutosh.officials01@gmail.com
 Phone: +91-6265111040, +91-6260083674

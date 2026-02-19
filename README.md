@@ -3,7 +3,7 @@
 Resume Management System Frontend. Handles uploads, listing, filtering, responsive UI, and API integration.
 
 ## 🚀 Features
-- Registration
+- Registration and login
 - Resume, CV upload & validation   
 - Dashboard & tooltips  
 - Responsive UI design  

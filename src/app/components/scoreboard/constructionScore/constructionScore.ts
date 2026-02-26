@@ -400,12 +400,10 @@ export class ConstructionScore implements OnInit {
 
 
       }
-      console.log("Message Description :: ", msgUpdate[k].msgDescription, "\n");
-      console.log("Message Param Type :: ", msgUpdate[k].msgParamType, "\n");
-      console.log("Message Percentage :: ", msgUpdate[k].msgPercentage, "\n");
-      console.log("Message GeneralId :: ", msgUpdate[k].atsGeneralId, "\n");
     }
-
+    console.log("Message Update Array {atsListBulk} :: ", this.atsListBulk);
+    console.log("Message Update Array {atsGenData} :: ", this.atsGenData);
+    console.log("Message Update Array {generalDataFormat} :: ", this.resMsgUpdate);
   }
 
   openMsgModal(type: 'positive' | 'partial' | 'negative') {

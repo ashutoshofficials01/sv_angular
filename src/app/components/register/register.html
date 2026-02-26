@@ -1,4 +1,4 @@
-<div>
+<!-- <div>
   <div>
     <ul>
       <h1>Register</h1>
@@ -36,5 +36,128 @@
         <button (click)="loginNavPage('personal')">Login</button></span
       >
     </ul>
+  </div>
+</div> -->
+
+<div
+  class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-green-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 transition-colors duration-300"
+>
+  <div
+    class="w-full max-w-6xl mx-6 bg-white/80 dark:bg-slate-800 backdrop-blur-md rounded-3xl shadow-2xl border border-blue-100 dark:border-slate-700 grid grid-cols-1 md:grid-cols-2 overflow-hidden"
+  >
+    <!-- LEFT SIDE -->
+    <div class="p-10 flex flex-col justify-center">
+      <h2 class="text-2xl font-bold text-blue-700 dark:text-blue-400 mb-6">ScanVera</h2>
+
+      <h1 class="text-3xl font-semibold text-slate-800 dark:text-white mb-6">Create Account</h1>
+
+      <!-- First & Last Name -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
+        <input [(ngModel)]="regFName" placeholder="First Name" class="input-field" />
+
+        <input [(ngModel)]="regLName" placeholder="Last Name" class="input-field" />
+      </div>
+
+      <!-- Username -->
+      <div class="mb-5">
+        <input [(ngModel)]="regUName" placeholder="Username" class="input-field" />
+      </div>
+
+      <!-- Email -->
+      <div class="mb-5">
+        <input
+          type="email"
+          [(ngModel)]="regEmailId"
+          placeholder="Email Address"
+          class="input-field"
+          [ngClass]="{ 'border-red-500 focus:ring-red-400': regEmailError }"
+        />
+
+        <p *ngIf="regEmailError" class="text-sm text-red-500 mt-1">
+          Please enter a valid email address.
+        </p>
+      </div>
+
+      <!-- Password -->
+      <div class="mb-5 relative">
+        <input
+          [type]="showRegPassword ? 'text' : 'password'"
+          [(ngModel)]="regPassword"
+          placeholder="Password"
+          class="input-field"
+        />
+
+        <button
+          type="button"
+          (click)="toggleRegPassword()"
+          class="absolute right-4 top-3 text-sm text-blue-600 dark:text-green-400 hover:underline"
+        >
+          {{ showRegPassword ? 'Hide' : 'Show' }}
+        </button>
+      </div>
+
+      <!-- Confirm Password -->
+      <div class="mb-6 relative">
+        <input
+          [type]="showRegConfirmPassword ? 'text' : 'password'"
+          [(ngModel)]="regConPassword"
+          placeholder="Confirm Password"
+          class="input-field"
+          [ngClass]="{ 'border-red-500 focus:ring-red-400': passwordMismatch }"
+        />
+
+        <button
+          type="button"
+          (click)="toggleRegConfirmPassword()"
+          class="absolute right-4 top-3 text-sm text-blue-600 dark:text-green-400 hover:underline"
+        >
+          {{ showRegConfirmPassword ? 'Hide' : 'Show' }}
+        </button>
+
+        <p *ngIf="passwordMismatch" class="text-sm text-red-500 mt-1">Passwords do not match.</p>
+      </div>
+
+      <!-- Register Button -->
+      <button
+        (click)="registerUser(regFName, regLName, regUName, regEmailId, regPassword, 'personal')"
+        [disabled]="isRegistering"
+        class="w-full py-3 rounded-xl bg-gradient-to-r from-blue-600 to-green-500 hover:from-blue-700 hover:to-green-600 text-white font-semibold shadow-md hover:shadow-lg border border-blue-600 dark:border-green-400 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+      >
+        {{ isRegistering ? 'Creating Account...' : 'Register' }}
+      </button>
+
+      <!-- Login -->
+      <div class="mt-6 text-center text-sm text-slate-600 dark:text-slate-400">
+        Already have an account?
+        <button
+          (click)="loginNavPage('personal')"
+          class="text-blue-600 dark:text-green-400 font-medium hover:underline ml-1"
+        >
+          Login
+        </button>
+      </div>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div
+      class="hidden md:flex items-center justify-center bg-gradient-to-br from-blue-100 to-green-100 dark:from-slate-900 dark:to-slate-800 p-10"
+    >
+      <div class="text-center">
+        <div
+          class="w-48 h-48 mx-auto mb-6 rounded-full bg-gradient-to-r from-blue-500 to-green-400 flex items-center justify-center shadow-lg"
+        >
+          <svg viewBox="0 0 200 200" class="w-24 h-24 text-white">
+            <circle cx="100" cy="80" r="30" fill="white" opacity="0.3" />
+            <rect x="60" y="110" width="80" height="40" rx="10" fill="white" opacity="0.3" />
+          </svg>
+        </div>
+
+        <h3 class="text-xl font-semibold text-blue-700 dark:text-blue-400">Join ScanVera</h3>
+
+        <p class="text-sm text-slate-600 dark:text-slate-400 mt-2 max-w-xs mx-auto">
+          Start optimizing your resume for modern ATS systems.
+        </p>
+      </div>
+    </div>
   </div>
 </div>

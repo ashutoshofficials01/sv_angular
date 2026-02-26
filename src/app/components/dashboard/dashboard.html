@@ -68,7 +68,7 @@
                   text-anchor="middle"
                   class="fill-green-600 dark:fill-green-400 font-bold text-xl"
                 >
-                  {{resumeMonthlyCount}}
+                  {{ resumeMonthlyCount }}
                 </text>
               </svg>
 
@@ -472,14 +472,14 @@
         <p class="text-slate-600 dark:text-slate-300 mb-6">To check your Resume's ATS Score:</p>
 
         <button
-          class="w-full py-3 rounded-lg bg-gradient-to-r from-blue-600 to-green-500 hover:from-blue-700 hover:to-green-600 text-white font-semibold shadow-md transition-all duration-300"
+          class="w-full py-3 rounded-lg bg-gradient-to-r from-[#6c99fa] to-[#93f0b6] hover:from-[#6c99fa] hover:to-[#93f0b6] dark:border-[#1e293b] border-2 hover:border-[#81a1e8] dark:hover:border-[#54ff04] text-white font-semibold shadow-md duration-300"
           (click)="navigateToScore(resumeCategory)"
         >
           Check ATS Score
         </button>
 
         <button
-          class="mt-4 text-sm text-slate-500 dark:text-slate-400 hover:text-red-500"
+          class="mt-4 text-sm text-slate-500 dark:text-slate-400 hover:text-red-500 dark:hover:text-red-500"
           (click)="resumeCategory = ''"
         >
           Cancel

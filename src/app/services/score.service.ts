@@ -2,6 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { constURL } from "../constant/url";
 import { Observable } from "rxjs";
+import { HttpEvent } from '@angular/common/http';
 import { loginCheckDto } from "../shared/classes-dto";
 
 

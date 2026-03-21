@@ -140,23 +140,18 @@ export class ItScore implements OnInit {
     this.message = '';
     this.isSuccess = false;
 
-    // 🔹 Start fake smooth progress
     const interval = setInterval(() => {
       if (this.uploadProgress < 90) {
         this.uploadProgress += 3;
-        this.cdr.detectChanges(); // Force refresh (important)
+        this.cdr.detectChanges(); 
       }
     }, 100);
 
     this.scoreService.resumeUploadIT(formd).subscribe({
       next: (resp: SendResponseDto) => {
         clearInterval(interval);
-
-        // Complete progress visually
         this.uploadProgress = 100;
-
         this.resumeUploadFormat(resp);
-
         this.message = `Resume "${this.selectedFile?.name}" uploaded! ATS Score: ${resp.atsScore}`;
 
         this.isSuccess = true;
@@ -546,13 +541,13 @@ export class ItScore implements OnInit {
 
   updateScoreColor(value: number) {
     if (value >= 80) {
-      this.scoreColor = '#22c55e'; // green
+      this.scoreColor = '#22c55e'; 
       this.scoreTextColor = 'text-green-500';
     } else if (value >= 50) {
-      this.scoreColor = '#eab308'; // yellow
+      this.scoreColor = '#eab308'; 
       this.scoreTextColor = 'text-yellow-500';
     } else {
-      this.scoreColor = '#ef4444'; // red
+      this.scoreColor = '#ef4444'; 
       this.scoreTextColor = 'text-red-500';
     }
   }

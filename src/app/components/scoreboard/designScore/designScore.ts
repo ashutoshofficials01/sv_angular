@@ -28,6 +28,17 @@ export class DesignScore implements OnInit {
   partialModal: boolean = false;
   negativeModal: boolean = false;
   activeModalType: 'positive' | 'partial' | 'negative' | null = null;
+  uploadProgress: number = 0;
+  radius = 70;
+  circumference = 2 * Math.PI * this.radius;
+
+  animatedScore = 0;
+  score = 0;
+
+  strokeOffset = this.circumference;
+
+  scoreColor = '#3b82f6';
+  scoreTextColor = 'text-blue-600';
 
   constructor(private router: Router, private route: ActivatedRoute, private scoreService: ScoreService, private cdr: ChangeDetectorRef) { }
 
@@ -81,23 +92,38 @@ export class DesignScore implements OnInit {
     formd.append('userId', this.formatType.toString());
 
     this.uploadState = 'uploading';
+     this.uploadProgress = 10;
+    this.message = '';
+    this.isSuccess = false;
+
+    const interval = setInterval(() => {
+      if (this.uploadProgress < 90) {
+        this.uploadProgress += 3;
+        this.cdr.detectChanges(); 
+      }
+    }, 100);
 
     this.scoreService.resumeUploadDesign(formd).subscribe({
       next: (resp: SendResponseDto) => {
-        // console.log('Upload success:', JSON.stringify(resp, null, 4));
-        console.log('Upload success:', resp);
+        clearInterval(interval);
+        this.uploadProgress = 100;
         this.resumeUploadFormat(resp);
         this.message = `Resume "${this.selectedFile?.name}" uploaded! ATS Score: ${resp.atsScore || 'Calculating...'}`;
         this.isSuccess = true;
         this.uploadState = 'done';
+         this.animateScoreCircle(resp.atsScore);
+
+        this.cdr.detectChanges();
 
         this.cdr.markForCheck();
       },
       error: (err) => {
-        console.error('Upload error:', err);
+        clearInterval(interval);
         this.message = 'Upload failed: ' + (err.error?.message || err.message || 'Unknown error');
         this.isSuccess = false;
         this.uploadState = 'error';
+        this.uploadProgress = 0;
+        this.cdr.detectChanges();
 
         this.cdr.markForCheck();
       }
@@ -426,6 +452,47 @@ export class DesignScore implements OnInit {
   limitText(text: string, limit: number = 65): string {
     if (!text) return '';
     return text.length > limit ? text.substring(0, limit) + '...' : text;
+  }
+
+   animateScoreCircle(finalScore: number) {
+    this.score = finalScore;
+    this.animatedScore = 0;
+
+    const duration = 1200;
+    const frameRate = 15;
+    const totalSteps = duration / frameRate;
+    const increment = finalScore / totalSteps;
+
+    let current = 0;
+
+    const interval = setInterval(() => {
+      current += increment;
+
+      if (current >= finalScore) {
+        current = finalScore;
+        clearInterval(interval);
+      }
+
+      this.animatedScore = Math.floor(current);
+
+      const progress = current / 100;
+      this.strokeOffset = this.circumference - this.circumference * progress;
+
+      this.updateScoreColor(current);
+    }, frameRate);
+  }
+
+  updateScoreColor(value: number) {
+    if (value >= 80) {
+      this.scoreColor = '#22c55e'; 
+      this.scoreTextColor = 'text-green-500';
+    } else if (value >= 50) {
+      this.scoreColor = '#eab308'; 
+      this.scoreTextColor = 'text-yellow-500';
+    } else {
+      this.scoreColor = '#ef4444'; 
+      this.scoreTextColor = 'text-red-500';
+    }
   }
 
   get filteredMessages() {

@@ -13,7 +13,7 @@
           Back
         </button>
 
-        <!-- HEADER -->
+
         <h1 class="text-3xl md:text-4xl font-bold text-blue-700 dark:text-blue-400 mb-4">
           ScanVera Technology & IT Scoreboard
         </h1>
@@ -22,7 +22,6 @@
           Upload your resume in PDF or DOCX format (Max 2MB) to analyze ATS compatibility.
         </p>
 
-        <!-- FILE UPLOAD AREA -->
         <div
           class="border-2 border-dashed border-blue-300 dark:border-slate-600 rounded-2xl p-8 text-center bg-blue-50/50 dark:bg-slate-900 transition-all duration-300"
         >
@@ -66,7 +65,7 @@
           </div>
         }
 
-        <!-- UPLOAD BUTTON -->
+
         @if (selectedFile && uploadState === 'idle') {
           <div class="flex justify-center mt-6">
             <button
@@ -77,10 +76,9 @@
             </button>
           </div>
         }
-
         @if (uploadState === 'uploading') {
           <div class="mt-8">
-            <!-- Status -->
+
             <div class="flex justify-between text-sm mb-2">
               <span class="font-medium text-blue-600 dark:text-green-400 animate-pulse">
                 {{ uploadProgress < 100 ? 'Uploading...' : 'Analyzing Resume...' }}
@@ -89,7 +87,6 @@
               <span class="text-slate-600 dark:text-slate-400"> {{ uploadProgress }}% </span>
             </div>
 
-            <!-- Progress Bar -->
             <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-3 overflow-hidden">
               <div
                 class="h-3 bg-gradient-to-r from-blue-500 to-green-400 transition-all duration-200"
@@ -102,7 +99,6 @@
         @if (uploadState === 'done' && isSuccess) {
           <div class="mt-10 flex flex-col items-center">
             <div class="relative w-44 h-44">
-              <!-- Background Circle -->
               <svg class="w-44 h-44 transform -rotate-90">
                 <circle
                   cx="88"
@@ -114,7 +110,6 @@
                   fill="transparent"
                 />
 
-                <!-- Animated Progress Circle -->
                 <circle
                   cx="88"
                   cy="88"
@@ -129,7 +124,6 @@
                 />
               </svg>
 
-              <!-- Score Text -->
               <div class="absolute inset-0 flex items-center justify-center flex-col">
                 <span class="text-4xl font-bold text-blue-700 dark:text-green-400">
                   {{ animatedScore }}
@@ -172,7 +166,6 @@
     </div>
   </main>
 
-  <!-- MODAL -->
   @if (activeModalType) {
     <div class="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
       <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl w-full max-w-2xl p-8">

@@ -1,2 +1,18 @@
+<!-- 
+<router-outlet /> -->
 
-<router-outlet />
+<div
+  class="min-h-screen flex flex-col bg-gradient-to-br from-blue-50 via-white to-green-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800"
+>
+  <app-navbar></app-navbar>
+
+  <main class="flex-1">
+    <router-outlet></router-outlet>
+  </main>
+
+  <footer
+    class="bg-white/80 dark:bg-slate-800 border-t border-blue-100 dark:border-slate-700 py-4 text-center text-slate-600 dark:text-slate-400"
+  >
+    © 2026 ScanVera. All rights reserved.
+  </footer>
+</div>
